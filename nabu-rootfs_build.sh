@@ -6,7 +6,7 @@ then
   exit
 fi
 
-VERSION="23.10"
+VERSION="24.04.2"
 
 truncate -s 6G rootfs.img
 mkfs.ext4 rootfs.img
@@ -48,11 +48,11 @@ chroot rootdir apt update
 chroot rootdir apt upgrade -y
 
 #u-boot-tools breaks grub installation
-chroot rootdir apt install -y bash-completion sudo ssh nano u-boot-tools- $1
+chroot rootdir apt install -y bash-completion sudo ssh vim software-properties-common u-boot-tools- $1
 
 #chroot rootdir gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts-only-mounted true
 
-
+#chroot rootdir add-apt-repository ppa:ubuntu-qcom-iot/qcom-noble-ppa
 
 #Device specific
 chroot rootdir apt install -y rmtfs protection-domain-mapper tqftpserv
