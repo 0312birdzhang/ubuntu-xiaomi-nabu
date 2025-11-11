@@ -1,0 +1,5 @@
+Package: xiaomi-nabu-configs
+Version: 0.0.1
+Architecture: arm64
+Maintainer: bird <0.0@birdzhang.xyz>
+Description: configs for xiaomi pad 5

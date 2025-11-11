@@ -64,6 +64,7 @@ cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs_$2/*
 chroot rootdir dpkg -i /tmp/linux-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/firmware-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/alsa-xiaomi-nabu.deb
+chroot rootdir dpkg -i /tmp/xiaomi-nabu-configs.deb
 rm rootdir/tmp/*-xiaomi-nabu.deb
 
 

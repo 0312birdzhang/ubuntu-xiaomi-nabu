@@ -1,6 +1,7 @@
-git clone https://github.com/map220v/sm8150-mainline.git --branch nabu-$1 --depth 1 linux
+git clone https://gitlab.com/sm8150-mainline/linux.git --branch sm8150/$1 --depth 1 linux
+cp ./linux-xiaomi-nabu/extra-sm8150.config linux/arch/arm64/configs/
 cd linux
-make -j$(nproc) ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- defconfig sm8150.config
+make -j$(nproc) ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- defconfig sm8150.config extra-sm8150.config
 make -j$(nproc) ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 _kernel_version="$(make kernelrelease -s)"
 mkdir ../linux-xiaomi-nabu/boot
@@ -16,3 +17,4 @@ rm -rf linux
 dpkg-deb --build --root-owner-group linux-xiaomi-nabu
 dpkg-deb --build --root-owner-group firmware-xiaomi-nabu
 dpkg-deb --build --root-owner-group alsa-xiaomi-nabu
+dpkg-deb --build --root-owner-group xiaomi-nabu-configs
